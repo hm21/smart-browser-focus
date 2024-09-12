@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "Focus Mode",
+    "description": "Blocks distracting websites and enables focus mode.",
+    "version": "1.0",
+    "permissions": [
+        "tabs",
+        "storage",
+        "activeTab",
+        "notifications",
+        "webNavigation"
+    ],
+    "background": {
+        "service_worker": "functions/background.js"
+    },
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "icons": {
+        "48": "assets/icon48.png",
+        "128": "assets/icon128.png"
+    }
+}

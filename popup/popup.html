@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Focus Mode</title>
+  <script src="/functions/check-blacklist.js"></script>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="/styles/button.css">
+  <link rel="stylesheet" href="/styles/slider.css">
+  <link rel="stylesheet" href="/styles/shared.css">
+</head>
+
+<body>
+
+  <div class="switch-container">
+    <h1>Focus Mode</h1>
+    <label class="switch">
+      <input type="checkbox" id="focusToggle">
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <div id="website-list" class="website-list">
+    <div class="add-row">
+      <input type="text" id="websiteInput" placeholder="example.com">
+      <button id="addWebsiteBtn" class="primary-btn">Add</button>
+    </div>
+
+    <ul id="blockedSitesList">
+    </ul>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

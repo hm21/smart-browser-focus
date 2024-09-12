@@ -1,0 +1,21 @@
+button {
+    background-color: transparent;
+    outline: none;
+    border: unset;
+    cursor: pointer;
+}
+
+.primary-btn {
+    border-radius: 3px;
+    background-color: #0f7dff;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 400;
+    padding: 7px 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+    button.primary-btn {
+        background-color: #024392;
+    }
+}
