@@ -25,7 +25,7 @@ function showProgressNotification(message, sender) {
     chrome.notifications.create(notificationId, {
         title: 'Focus Mode',
         message: `Focus mode will be re-enabled in ${durationMs / 1000} seconds.`,
-        iconUrl: '/assets/icon128.png',
+        iconUrl: '/assets/icon-active-128.png',
         type: 'progress',
         progress: 0
     }, function (id) {
@@ -60,7 +60,7 @@ function showProgressNotification(message, sender) {
                 chrome.notifications.update(notificationId, {
                     title: 'Focus Mode Re-Enabled',
                     message: 'Focus mode is now active again.',
-                    iconUrl: '/assets/icon128.png',
+                    iconUrl: '/assets/icon-active-128.png',
                     type: 'basic'
                 });
 

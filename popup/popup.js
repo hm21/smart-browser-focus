@@ -27,6 +27,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const isChecked = this.checked;
     chrome.storage.local.set({ focusMode: isChecked });
 
+    chrome.action.setIcon({ path: `/assets/icon-${isChecked ? 'active' : 'inactive'}-128.png` });
+
     // When Focus Mode is enabled, block all websites on the blocklist
     chrome.storage.local.get('blockedWebsites', function (result) {
       const blockedWebsites = result.blockedWebsites || [];
@@ -38,27 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-
-  // Function to block all websites in the blocklist
-  function unblockAllWebsites(blockedWebsites) {
-    chrome.tabs.query({}, function (tabs) {
-      // Loop through each open tab
-      tabs.forEach(function (tab) {
-        // Check if the tab's URL contains any of the blocked websites
-        blockedWebsites.forEach(function (site) {
-          if (tab.url.includes(site)) {
-            const sp = tab.url.split('#');
-            if (sp.length > 1) {
-              const site = sp[1];
-              if (site) {
-                chrome.tabs.update(tab.id, { url: `https://${site}` });
-              }
-            }
-          }
-        });
-      });
-    });
-  }
 
   // Add a new website to the block list
   websiteInput.addEventListener('keydown', function (event) {

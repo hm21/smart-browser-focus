@@ -22,3 +22,24 @@ function blockAllWebsites(blockedWebsites) {
         });
     });
 }
+
+// Function to block all websites in the blocklist
+function unblockAllWebsites(blockedWebsites) {
+    chrome.tabs.query({}, function (tabs) {
+        // Loop through each open tab
+        tabs.forEach(function (tab) {
+            // Check if the tab's URL contains any of the blocked websites
+            blockedWebsites.forEach(function (site) {
+                if (tab.url.includes(site)) {
+                    const sp = tab.url.split('#');
+                    if (sp.length > 1) {
+                        const site = sp[1];
+                        if (site) {
+                            chrome.tabs.update(tab.id, { url: `https://${site}` });
+                        }
+                    }
+                }
+            });
+        });
+    });
+}
